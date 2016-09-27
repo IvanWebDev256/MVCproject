@@ -19,7 +19,7 @@ namespace OdeToFood.Migrations
                 .PrimaryKey(t => t.Id);
             
             CreateTable(
-                "dbo.RestaurantReviewModels",
+                "dbo.RestaurantReview",
                 c => new
                     {
                         Id = c.Int(nullable: false, identity: true),
@@ -35,9 +35,9 @@ namespace OdeToFood.Migrations
         
         public override void Down()
         {
-            DropForeignKey("dbo.RestaurantReviewModels", "RestaurantId", "dbo.Restaurants");
-            DropIndex("dbo.RestaurantReviewModels", new[] { "RestaurantId" });
-            DropTable("dbo.RestaurantReviewModels");
+            DropForeignKey("dbo.RestaurantReview", "RestaurantId", "dbo.Restaurants");
+            DropIndex("dbo.RestaurantReview", new[] { "RestaurantId" });
+            DropTable("dbo.RestaurantReview");
             DropTable("dbo.Restaurants");
         }
     }

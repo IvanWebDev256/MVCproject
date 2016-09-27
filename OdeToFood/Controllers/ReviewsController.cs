@@ -31,7 +31,7 @@ namespace OdeToFood.Controllers
         }
 
         [HttpPost]
-        public ActionResult Create(RestaurantReviewModels review)
+        public ActionResult Create(RestaurantReview review)
         {
             if (ModelState.IsValid)
             {
@@ -50,7 +50,7 @@ namespace OdeToFood.Controllers
         }
 
         [HttpPost]
-        public ActionResult Edit(RestaurantReviewModels review)
+        public ActionResult Edit(RestaurantReview review)
         {
             if (ModelState.IsValid)
             {

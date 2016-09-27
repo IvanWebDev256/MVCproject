@@ -15,7 +15,7 @@ namespace OdeToFood.Migrations
             ContextKey = "OdeToFood.Models.OdeToFoodDb";
         }
 
-        protected override void Seed(OdeToFood.Models.OdeToFoodDb context)
+        protected override void Seed(OdeToFoodDb context)
         {
             context.Restaurants.AddOrUpdate(r => r.Name, // it looks by Name
                 // if name exist it updates if not it add
@@ -26,9 +26,9 @@ namespace OdeToFood.Migrations
                     Name = "Smaka",
                     City = "Gothenberg",
                     Country = "Sweden",
-                    Reviews = new List<RestaurantReviewModels>
+                    Reviews = new List<RestaurantReview>
                     {
-                        new RestaurantReviewModels { Rating = 9, Body = "Great Food", ReviewerName = "Ivan" }
+                        new RestaurantReview { Rating = 9, Body = "Great Food", ReviewerName = "Ivan" }
                     }
                 }
                 );

@@ -33,7 +33,7 @@ namespace OdeToFood.Controllers
 
         public ActionResult About()
         {
-            var model = new AboutModel();
+            var model = new HomeAboutViewModel();
             model.Name = "Scott";
             model.Location = "Maryland, USA";
 
@@ -111,7 +111,7 @@ namespace OdeToFood.Controllers
 
 //        public ActionResult About()
 //        {
-//            var model = new AboutModel();
+//            var model = new HomeAboutViewModel();
 //            model.Name = "Ivan";
 //            model.Location = "Kiev, UA";
 
