@@ -56,21 +56,21 @@ namespace OdeToFood
             routes.MapRoute(
                 name: "ReviewCreate",
                 url: "restaurants/{restaurantId}/reviews/create",
-                defaults: new { controller = "Restaurant", action = "Create" },
+                defaults: new { controller = "Review", action = "Create" },
                 constraints: new { httpMethod = new HttpMethodConstraint("GET", "POST") }
             );
 
             routes.MapRoute(
                 name: "ReviewEdit",
                 url: "restaurants/{restaurantId}/reviews/edit/{id}",
-                defaults: new { controller = "Restaurant", action = "Edit" },
+                defaults: new { controller = "Review", action = "Edit" },
                 constraints: new { httpMethod = new HttpMethodConstraint("GET", "POST") }
             );
 
             routes.MapRoute(
                 name: "ReviewDelete",
                 url: "restaurants/{restaurantId}/reviews/delete/{id}",
-                defaults: new { controller = "Restaurant", action = "Delete" },
+                defaults: new { controller = "Review", action = "Delete" },
                 constraints: new { httpMethod = new HttpMethodConstraint("GET", "POST") }
             );
 
