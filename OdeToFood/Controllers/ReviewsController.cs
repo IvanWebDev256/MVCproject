@@ -27,7 +27,7 @@ namespace OdeToFood.Controllers
         [HttpGet]
         public ActionResult Create(int restaurantId)
         {
-            return View();
+            return View(new RestaurantReviewModels { RestaurantId = restaurantId });
         }
 
         [HttpPost]
