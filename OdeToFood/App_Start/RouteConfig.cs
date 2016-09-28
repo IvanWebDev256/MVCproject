@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using System.Web.Mvc;
+﻿using System.Web.Mvc;
 using System.Web.Routing;
 
 namespace OdeToFood
@@ -14,16 +10,70 @@ namespace OdeToFood
             routes.IgnoreRoute("{resource}.axd/{*pathInfo}");
 
             routes.MapRoute(
-                "Cuisine",
-                "cuisine/{name}",
-                new { controller = "Cuisine", action = "Search", name = UrlParameter.Optional }
-                );
+                name: "HomeIndex",
+                url: "",
+                defaults: new {controller = "Home", action = "Index"},
+                constraints: new {httpMethod = new HttpMethodConstraint("GET")}
+            );
+
+            //Restaurant routes
+            routes.MapRoute(
+                name: "RestaurantIndex",
+                url: "restaurants",
+                defaults: new {controller = "Restaurant", action = "Index"},
+                constraints: new {httpMethod = new HttpMethodConstraint("GET")}
+            );
 
             routes.MapRoute(
-                name: "Default",
-                url: "{controller}/{action}/{id}",
-                defaults: new { controller = "Home", action = "Index", id = UrlParameter.Optional }
+                name: "RestaurantCreate",
+                url: "restaurants/create",
+                defaults: new {controller = "Restaurant", action = "Create"},
+                constraints: new {httpMethod = new HttpMethodConstraint("GET", "POST")}
             );
+
+            routes.MapRoute(
+                name: "RestaurantEdit",
+                url: "restaurants/edit/{id}",
+                defaults: new {controller = "Restaurant", action = "Edit"},
+                constraints: new {httpMethod = new HttpMethodConstraint("GET", "POST")}
+            );
+
+            routes.MapRoute(
+                name: "RestaurantDelete",
+                url: "restaurants/delete/{id}",
+                defaults: new {controller = "Restaurant", action = "Delete"},
+                constraints: new {httpMethod = new HttpMethodConstraint("GET", "POST")}
+            );
+
+            //Review routes
+            routes.MapRoute(
+                name: "ReviewIndex",
+                url: "restaurants/{restaurantId}/reviews",
+                defaults: new { controller = "Review", action = "Index" },
+                constraints: new { httpMethod = new HttpMethodConstraint("GET") }  
+            );
+
+            routes.MapRoute(
+                name: "ReviewCreate",
+                url: "restaurants/{restaurantId}/reviews/create",
+                defaults: new { controller = "Restaurant", action = "Create" },
+                constraints: new { httpMethod = new HttpMethodConstraint("GET", "POST") }
+            );
+
+            routes.MapRoute(
+                name: "ReviewEdit",
+                url: "restaurants/{restaurantId}/reviews/edit/{id}",
+                defaults: new { controller = "Restaurant", action = "Edit" },
+                constraints: new { httpMethod = new HttpMethodConstraint("GET", "POST") }
+            );
+
+            routes.MapRoute(
+                name: "ReviewDelete",
+                url: "restaurants/{restaurantId}/reviews/delete/{id}",
+                defaults: new { controller = "Restaurant", action = "Delete" },
+                constraints: new { httpMethod = new HttpMethodConstraint("GET", "POST") }
+            );
+
         }
     }
 }
