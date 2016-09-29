@@ -1,6 +1,6 @@
 ﻿using OdeToFood.Models;
- using System.Data.Entity;
- using System.Web.Mvc;
+using System.Data.Entity;
+using System.Web.Mvc;
 
 namespace OdeToFood.Controllers
 {
