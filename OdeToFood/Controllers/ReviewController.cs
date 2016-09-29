@@ -1,11 +1,6 @@
 ﻿using OdeToFood.Models;
-using System;
-using System.Collections.Generic;
-using System.Data;
-using System.Data.Entity;
-using System.Linq;
-using System.Web;
-using System.Web.Mvc;
+ using System.Data.Entity;
+ using System.Web.Mvc;
 
 namespace OdeToFood.Controllers
 {
@@ -14,7 +9,7 @@ namespace OdeToFood.Controllers
 
         OdeToFoodDb _db = new OdeToFoodDb();
 
-        public ActionResult Index(int restaurantId)
+        public ActionResult Index([Bind(Prefix = "restaurantId")] int restaurantId)
         {
             var restaurant = _db.Restaurants.Find(restaurantId);
             if (restaurant != null)
@@ -27,7 +22,7 @@ namespace OdeToFood.Controllers
         [HttpGet]
         public ActionResult Create(int restaurantId)
         {
-            return View();
+            return View(new RestaurantReview { RestaurantId = restaurantId });
         }
 
         [HttpPost]
@@ -37,7 +32,7 @@ namespace OdeToFood.Controllers
             {
                 _db.Reviews.Add(review);
                 _db.SaveChanges();
-                return RedirectToAction("Index", new { restaurantId = review.RestaurantId });
+                return RedirectToAction("Index", new { id = review.RestaurantId });
             }
             return View(review);
         }
@@ -56,7 +51,7 @@ namespace OdeToFood.Controllers
             {
                 _db.Entry(review).State = EntityState.Modified;
                 _db.SaveChanges();
-                return RedirectToAction("Index", new { restauranId = review.RestaurantId });
+                return RedirectToAction("Index", new { id = review.RestaurantId });
             }
             return View(review);
         }
