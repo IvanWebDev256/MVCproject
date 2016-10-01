@@ -32,7 +32,7 @@ namespace OdeToFood.Controllers
             {
                 _db.Reviews.Add(review);
                 _db.SaveChanges();
-                return RedirectToAction("Index", new { id = review.RestaurantId });
+                return RedirectToAction("Index");
             }
             return View(review);
         }
