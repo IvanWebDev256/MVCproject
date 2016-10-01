@@ -31,7 +31,9 @@
         </div>
     </div>
     <div class="container body-content">
-        @RenderBody()
+        <section class="content-wrapper main-content clearfix">
+            @RenderBody()
+        </section>
         <hr />
         <footer>
             @RenderSection("featured", required: false)

@@ -7,7 +7,7 @@ namespace OdeToFood.Migrations
     using System.Data.Entity.Migrations;
     using System.Linq;
 
-    internal sealed class Configuration : DbMigrationsConfiguration<OdeToFood.Models.OdeToFoodDb>
+    internal sealed class Configuration : DbMigrationsConfiguration<OdeToFoodDb>
     {
         public Configuration()
         {
@@ -15,7 +15,7 @@ namespace OdeToFood.Migrations
             ContextKey = "OdeToFood.Models.OdeToFoodDb";
         }
 
-        protected override void Seed(OdeToFood.Models.OdeToFoodDb context)
+        protected override void Seed(OdeToFoodDb context)
         {
             context.Restaurants.AddOrUpdate(r => r.Name, // it looks by Name
                 // if name exist it updates if not it add
