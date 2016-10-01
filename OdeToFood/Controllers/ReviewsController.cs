@@ -45,16 +45,18 @@ namespace OdeToFood.Controllers
         [HttpGet]
         public ActionResult Edit(int id)
         {
-            var model = _db.Reviews.Find(id);
+            var _x = _db.Reviews.Find(id);
+            var model = MvcApplication.Mapper.Map<ReviewEditModel>(_x);
             return View(model);
         }
 
         [HttpPost]
-        public ActionResult Edit(RestaurantReviewModels review)
+        public ActionResult Edit(ReviewEditModel review)
         {
             if (ModelState.IsValid)
             {
-                _db.Entry(review).State = EntityState.Modified;
+                var x = _db.Reviews.Find(review.Id);
+                MvcApplication.Mapper.Map(review, x);
                 _db.SaveChanges();
                 return RedirectToAction("Index", new { id = review.RestaurantId });
             }
