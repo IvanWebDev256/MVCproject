@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
-using System.Linq;
-using System.Web;
 
 namespace OdeToFood.Models
 {
@@ -30,7 +26,7 @@ namespace OdeToFood.Models
         }
     }
 
-    public class RestaurantReviewModels
+    public class RestaurantReview
     {
         public int Id { get; set; }
 

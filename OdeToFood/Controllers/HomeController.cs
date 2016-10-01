@@ -1,10 +1,8 @@
-﻿using OdeToFood.Models;
-using System;
-using System.Collections.Generic;
+using OdeToFood.Models;
 using System.Linq;
-using System.Web;
 using System.Web.Mvc;
 using PagedList;
+using OdeToFood.ViewModels;
 
 namespace OdeToFood.Controllers
 {
@@ -37,7 +35,7 @@ namespace OdeToFood.Controllers
 
         public ActionResult About()
         {
-            var model = new AboutModel();
+            var model = new HomeAboutViewModel();
             model.Name = "Scott";
             model.Location = "Maryland, USA";
 
@@ -61,3 +59,4 @@ namespace OdeToFood.Controllers
         }
     }
 }
+

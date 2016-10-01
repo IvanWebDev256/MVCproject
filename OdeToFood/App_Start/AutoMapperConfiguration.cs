@@ -13,8 +13,8 @@ namespace OdeToFood.App_Start
         {
             var xf = new MapperConfiguration((cfg) =>
             {
-                cfg.CreateMap<RestaurantReviewModels, ReviewEditModel>();
-                cfg.CreateMap<ReviewEditModel, RestaurantReviewModels>()
+                cfg.CreateMap<RestaurantReview, ReviewEditModel>();
+                cfg.CreateMap<ReviewEditModel, RestaurantReview>()
                 .ForMember(x => x.Id, opt => opt.Ignore());
             });
             return xf;

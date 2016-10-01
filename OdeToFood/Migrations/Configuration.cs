@@ -1,13 +1,10 @@
 namespace OdeToFood.Migrations
 {
     using Models;
-    using System;
     using System.Collections.Generic;
-    using System.Data.Entity;
     using System.Data.Entity.Migrations;
-    using System.Linq;
 
-    internal sealed class Configuration : DbMigrationsConfiguration<OdeToFoodDb>
+    internal sealed class Configuration : DbMigrationsConfiguration<OdeToFood.Models.OdeToFoodDb>
     {
         public Configuration()
         {
@@ -26,9 +23,9 @@ namespace OdeToFood.Migrations
                     Name = "Smaka",
                     City = "Gothenberg",
                     Country = "Sweden",
-                    Reviews = new List<RestaurantReviewModels>
+                    Reviews = new List<RestaurantReview>
                     {
-                        new RestaurantReviewModels { Rating = 9, Body = "Great Food", ReviewerName = "Ivan" }
+                        new RestaurantReview { Rating = 9, Body = "Great Food", ReviewerName = "Ivan" }
                     }
                 }
                 );
